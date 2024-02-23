@@ -1,0 +1,58 @@
+specificationVersion: 'jobtemplate-2023-09'
+name: Default Rhino Job Template
+parameterDefinitions:
+- name: RhinoFile
+  type: PATH
+  objectType: FILE
+  dataFlow: IN
+  userInterface:
+    control: CHOOSE_INPUT_FILE
+    label: Rhino Package File
+    groupLabel: Rhino Settings
+    fileFilters:
+    - label: Rhino Package files
+      patterns:
+      - '*.3dm'
+    - label: All Files
+      patterns:
+      - '*'
+  description: The Rhino package file to render.
+- name: Frames
+  type: STRING
+  userInterface:
+    control: LINE_EDIT
+    label: Frames
+    groupLabel: Rhino Settings
+  description: The frames to render. E.g. 1-3,8,11-15
+  minLength: 1
+- name: OutputFilePath
+  type: PATH
+  objectType: FILE
+  dataFlow: OUT
+  userInterface:
+    control: CHOOSE_INPUT_FILE
+    label: Output File Path
+    groupLabel: Rhino Settings
+  description: The render output path.
+steps:
+- name: RenderCommand
+  parameterSpace:
+    taskParameterDefinitions:
+    - name: Frame
+      type: INT
+      range: "{{Param.Frames}}"
+  stepEnvironments:
+  - name: Rhino
+    variables:
+      OUTPUT_PATH: ""
+  script:
+    actions:
+      onRun:
+        command: '{{Task.File.Run}}'
+    embeddedFiles:
+    - name: Run
+      filename: rhino.cmd
+      runnable: true
+      type: TEXT
+      data: |
+        Rhino.exe /nosplash /runscript="-Open {{Param.RhinoFile}} _Render Enter -_SaveRenderWindowAs {{Param.OutputFilePath}} -_CloseRenderWindow -_Exit"

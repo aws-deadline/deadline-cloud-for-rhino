@@ -1,0 +1,96 @@
+<!-- Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. -->
+<?xml version="1.0" encoding="utf-8"?>
+<RhinoUI major_ver="5" minor_ver="0" guid="18f7c445-3f30-499e-a343-9257ba06b697" localize="False" default_language_id="1033" dpi_scale="150">
+  <extend_rhino_menus />
+  <menus />
+  <tool_bar_groups />
+  <tool_bars>
+    <tool_bar guid="29648610-9386-432f-ae6e-2333ae54b12e">
+      <text>
+        <locale_1033>Deadline</locale_1033>
+      </text>
+      <tool_bar_item guid="210468da-5718-4200-85a9-953dddafc5e1">
+        <left_macro_id>3f50cd3e-d836-4e4f-a160-e36e56634c76</left_macro_id>
+      </tool_bar_item>
+    </tool_bar>
+  </tool_bars>
+  <macros>
+    <macro_item guid="3f50cd3e-d836-4e4f-a160-e36e56634c76">
+      <text>
+        <locale_1033>Submit to Deadline</locale_1033>
+      </text>
+      <script>_Save
+-_RunPythonScript (
+import os
+import sys
+import json
+import tempfile
+import subprocess
+import Rhino
+import rhinoscriptsyntax as rs
+
+# TODO: installed artifact needs to find python and the rhino main module,
+# for now use use these 2 environment variables DEADLINE_PYTHON, DEADLINE_RHINO
+# Python binary to execute rhino submitter __main__ modiule
+DEADLINE_PYTHON = os.getenv('DEADLINE_PYTHON')
+# Path to rhino submitter __main__ module
+# In dev mode: src/deadlne/rhino_submitter
+DEADLINE_RHINO = os.getenv('DEADLINE_RHINO')
+
+def _get_textures():
+    files = []
+    doc = Rhino.RhinoDoc.ActiveDoc
+    if doc:
+        render_materials = doc.Materials
+        if render_materials:
+            for material in render_materials:
+                try:
+                    texture = material.GetBitmapTexture()
+                    if texture:
+                        files.append(texture.FileName)
+                except Exception:
+                  pass
+    return files
+
+
+def _get_active_view():
+    doc = Rhino.RhinoDoc.ActiveDoc
+    view = doc.Views.ActiveView
+    viewport = view.ActiveViewport
+    active_view = viewport.Name
+    return active_view
+
+
+def _get_scene_file():
+    name = rs.DocumentName()
+    path = rs.DocumentPath()
+    file_path = os.path.join(path, name)
+    return file_path
+
+
+file_path = _get_scene_file()
+views = rs.ViewNames()
+active_view = _get_active_view()
+external_files = _get_textures()
+
+rhino_info = {
+    'scene': file_path,
+    'views': views,
+    'active_view': active_view,
+    'files': external_files
+}
+
+_, info_file = tempfile.mkstemp(suffix='.json')
+with open(info_file, 'w') as f:
+    json.dump(rhino_info, f)
+subprocess.call([DEADLINE_PYTHON, DEADLINE_RHINO, info_file])
+)</script>
+    </macro_item>
+  </macros>
+  <bitmaps>
+    <small_bitmap item_width="0" item_height="0" />
+    <normal_bitmap item_width="0" item_height="0" />
+    <large_bitmap item_width="0" item_height="0" />
+  </bitmaps>
+  <scripts />
+</RhinoUI>
