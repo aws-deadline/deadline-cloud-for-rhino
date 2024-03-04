@@ -2,7 +2,7 @@
 import sys
 from unittest.mock import MagicMock
 
-# we must mock maya and UI code
+# we must mock UI code
 mock_modules = [
     "deadline.client.ui.deadline_credentials_status",
     "PySide2",

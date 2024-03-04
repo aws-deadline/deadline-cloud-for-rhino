@@ -13,3 +13,5 @@ __pycache__/
 /dev_install/
 /wheels/
 old/
+
+*.exe

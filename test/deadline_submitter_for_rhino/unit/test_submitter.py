@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 from __future__ import annotations
 from pathlib import Path
+from typing import Any
 import yaml
 import tempfile
 import deadline.rhino_submitter.rhino_render_submitter as submitter_module
@@ -36,10 +37,10 @@ def test_get_job_template():
 
 def test_get_parameter_values():
     settings = RenderSubmitterUISettings()
-    queue = []
+    queue_params: list[dict[str, Any]] = []
     frames = "1-5"
     scene_name = "foo"
-    params = submitter_module._get_parameter_values(settings, queue, frames, scene_name)
+    params = submitter_module._get_parameter_values(settings, queue_params, frames, scene_name)
     assert params is not None
     for param in params:
         if param["name"] == "Frames":

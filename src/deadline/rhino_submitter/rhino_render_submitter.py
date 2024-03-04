@@ -125,7 +125,7 @@ def _show_submitter(data, parent=None, f=Qt.WindowFlags()):
     render_settings.view_selection = active_view
 
     # Set the setting defaults that come from the scene
-    output_path = Path(scene_name).parent
+    output_path: str = str(Path(scene_name).parent)
     render_settings.name = Path(scene_name).name
     render_settings.frame_list = frames
     render_settings.output_file_path = output_path

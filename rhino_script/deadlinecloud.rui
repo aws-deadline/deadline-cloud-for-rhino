@@ -7,7 +7,7 @@
   <tool_bars>
     <tool_bar guid="29648610-9386-432f-ae6e-2333ae54b12e">
       <text>
-        <locale_1033>Deadline</locale_1033>
+        <locale_1033>AWS Deadline</locale_1033>
       </text>
       <tool_bar_item guid="210468da-5718-4200-85a9-953dddafc5e1">
         <left_macro_id>3f50cd3e-d836-4e4f-a160-e36e56634c76</left_macro_id>
@@ -17,7 +17,7 @@
   <macros>
     <macro_item guid="3f50cd3e-d836-4e4f-a160-e36e56634c76">
       <text>
-        <locale_1033>Submit to Deadline</locale_1033>
+        <locale_1033>Submit to Deadline Cloud</locale_1033>
       </text>
       <script>_Save
 -_RunPythonScript (

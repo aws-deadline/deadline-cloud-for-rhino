@@ -9,6 +9,6 @@ if deadline_rhino_path not in sys.path:
 
 
 if __name__ == "__main__":
-    from rhino_submitter.rhino_render_submitter import show_submitter
+    from rhino_submitter.rhino_render_submitter import show_submitter  # type: ignore
 
     show_submitter(sys.argv[-1])

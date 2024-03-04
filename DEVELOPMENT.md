@@ -1,4 +1,4 @@
-# Amazon Deadline Cloud for Rhino Development
+# AWS Deadline Cloud for Rhino Development
 
 This package has two active branches:
 
@@ -22,6 +22,4 @@ Worker needs to find Rhino.exe
 
 ```
 set PATH=C:\Program Files\Rhino 8\System;%PATH%
-
 ```
-
