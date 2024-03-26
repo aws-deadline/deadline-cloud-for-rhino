@@ -11,7 +11,7 @@ requires-python = ">=3.9"
 # Rhino 8 - 3.9
 
 dependencies = [
-    "deadline == 0.38.*",
+    "deadline == 0.45.*",
 ]
 
 [tool.hatch.build]
