@@ -28,7 +28,7 @@ classifiers = [
 
 
 dependencies = [
-    "deadline == 0.38.*",
+    "deadline == 0.46.*",
 ]
 
 [tool.hatch.build]
@@ -75,7 +75,7 @@ explicit_package_bases = true
 mypy_path = "src"
 
 [[tool.mypy.overrides]]
-module = ["Rhino.*", "rhinoscriptsyntax.*", "PySide2.*"]
+module = ["Rhino.*", "rhinoscriptsyntax.*", "PySide2.*", "qtpy.*"]
 ignore_missing_imports = true
 
 # --- RUFF / BLACK ---
