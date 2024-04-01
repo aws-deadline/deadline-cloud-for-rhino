@@ -7,7 +7,7 @@ name = "deadline-cloud-for-rhino"
 authors = [
   {name = "Amazon Web Services"},
 ]
-description = "AWS Deadline Cloud integrated submitter for Rhino"
+description = "AWS Deadline Cloud for Rhino"
 dynamic = ["version"]
 readme = "README.md"
 license = "Apache-2.0"

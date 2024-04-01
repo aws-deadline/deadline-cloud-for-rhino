@@ -1,8 +1,8 @@
+# AWS Deadline Cloud for Rhino
+
 [![pypi](https://img.shields.io/pypi/v/deadline-cloud-for-rhino.svg?style=flat)](https://pypi.python.org/pypi/deadline-cloud-for-rhino)
 [![python](https://img.shields.io/pypi/pyversions/deadline-cloud-for-rhino.svg?style=flat)](https://pypi.python.org/pypi/deadline-cloud-for-rhino)
 [![license](https://img.shields.io/pypi/l/deadline-cloud-for-rhino.svg?style=flat)](https://github.com/aws-deadline/deadline-cloud-for-rhino/blob/mainline/LICENSE)
-
-# AWS Deadline Cloud for Rhino
 
 ### Disclaimer
 ---
