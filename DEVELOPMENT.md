@@ -1,9 +1,42 @@
-# AWS Deadline Cloud for Rhino Development
+# Development documentation
 
 This package has two active branches:
 
     mainline -- For active development. This branch is not intended to be consumed by other packages. Any commit to this branch may break APIs, dependencies, and so on, and thus break any consumer without notice.
     release -- The official release of the package intended for consumers. Any breaking releases will be accompanied with an increase to this package's interface version.
+
+## Build / Test / Release
+
+### Build the package
+
+```bash
+hatch build
+```
+
+### Run tests
+
+```bash
+hatch run test
+```
+
+### Run linting
+
+```bash
+hatch run lint
+```
+
+### Run formatting
+
+```bash
+hatch run fmt
+```
+
+### Run tests for all supported Python versions
+
+```bash
+hatch run all:test
+```
+
 
 ## Submitter Development Workflow
 
@@ -16,7 +49,7 @@ This package has two active branches:
 4. Launch Rhino with the environment variables from step 2. set.
 5. Install the submitter into the Rhino toolbar `<PATH TO>/deadline-cloud-for-rhino/rhino_script/deadlinecloud.rui`
 
-## Adaptor Development Workflow
+## Worker Development Workflow
 
 Worker needs to find Rhino.exe
 
