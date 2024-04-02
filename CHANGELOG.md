@@ -1,3 +1,11 @@
+## 0.1.2 (2024-04-02)
+
+
+### Bug Fixes
+
+fixed line endings in shell script
+
+
 ## 0.1.1 (2024-04-02)
 
 
