@@ -1,3 +1,10 @@
+## 0.1.1 (2024-04-02)
+
+
+
+### Bug Fixes
+* make publish and build executable (#19) ([`ba4bf0b`](https://github.com/aws-deadline/deadline-cloud-for-rhino/commit/ba4bf0b798ad1b0b06c40b1a3ce7cfa66b37bf6c))
+
 ## 0.1.0 (2024-04-02)
 
 ### BREAKING CHANGES
