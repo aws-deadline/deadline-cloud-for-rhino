@@ -30,7 +30,7 @@ classifiers = [
 # Rhino 8 - 3.9
 
 dependencies = [
-    "deadline == 0.47.*",
+    "deadline == 0.48.*",
 ]
 
 [project.urls]
