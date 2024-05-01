@@ -1,3 +1,9 @@
+## 0.1.3 (2024-05-01)
+
+### Dependencies
+* Update deadline requirement from ==0.47.* to ==0.48.* (#27) ([`ce1a08f`](https://github.com/aws-deadline/deadline-cloud-for-rhino/commit/ce1a08f5f93575f03e2033a0edb955952abb36d6))
+
+
 ## 0.1.2 (2024-04-02)
 
 
